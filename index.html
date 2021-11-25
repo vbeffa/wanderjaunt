@@ -30,24 +30,14 @@
                 { "name": "Ryan Miller", "id": 30, "title": "Operations Lead", "manager_id": 4 },
             ]
             function getEmployees() {
-                let employees = [];
-                let indexes = new Map();
-                let manager_indexes = new Map();
                 let all_reports = new Map();
                 for (i = 0; i < input.length; i++) {
                     const e = new Employee(input[i].id, input[i].name, input[i].title, input[i].manager_id);
-                    employees.push(e);
-                    indexes.set(e.id, i);
-                    manager_indexes.set(e.manager_id, i);
                     if (!all_reports.has(e.manager_id)) {
                         all_reports.set(e.manager_id, []);
                     }
                     all_reports.get(e.manager_id).push(e);
                 }
-                // console.log(employees);
-                // console.log(indexes);
-                console.log(manager_indexes);
-                // console.log(all_reports);
                 all_reports.forEach(reports => {
                     reports.sort(
                         (e1, e2) => e1.last_name() < e2.last_name() ? -1 : e1.last_name() > e2.last_name() ? 1 : 0
@@ -58,13 +48,10 @@
                 document.getElementById("employees").appendChild(ul);
 
                 let outputHTML = (ul, reports) => {
-                    console.log(ul);
-                    console.log(reports);
                     if (reports === undefined) {
                         return;
                     }
                     for (report of reports) {
-                        console.log(`${report.title}: ${report.name}`);
                         let li = document.createElement('li');
                         ul.appendChild(li);
                         li.innerHTML += `${report.title}: ${report.name}`;
