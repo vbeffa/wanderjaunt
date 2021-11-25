@@ -16,12 +16,24 @@ this property may be standardized across all teams.
 </body>
 </html>
 
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
+```
+/// a user is a member of the
+/// activation team
+Table users {
+  id uuid [pk]
+}
 
+Table custom_fields {
+  id uuid [pk]
+  user_id uuid
+  text text
+  photos blob[]
+}
+
+Ref: users.id < custom_fields.user_id
+```
+
+![Model](custom_fields.png)
 
 ## API
 ```
