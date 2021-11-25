@@ -10,7 +10,7 @@ The scope of this property is currently limited to the activations teams. In the
 this property may be standardized across all teams.
 
 ## Modeling
-Available at [dbdiagram.io](https://dbdiagram.io/embed/61a013348c901501c0d32666)
+Available at [dbdiagram.io](https://dbdiagram.io/d/61a013348c901501c0d32666)
 
 ```
 /// a user is a member of the
