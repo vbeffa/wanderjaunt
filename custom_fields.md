@@ -10,7 +10,18 @@ The scope of this property is currently limited to the activations teams. In the
 this property may be standardized across all teams.
 
 ## Modeling
+<html>
+<body>
 <iframe width="560" height="315" src='https://dbdiagram.io/embed/61a013348c901501c0d32666'> </iframe>
+</body>
+</html>
+
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
+
 
 ## API
 ```
