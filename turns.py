@@ -53,9 +53,20 @@ turns = [
     Turn(datetime(2021, 11, 24), datetime(2021, 11, 30), False)
 ]
 
+# projected sameday turns
 def projected_sameday_turns(date):
-    pass
+    return avg_sameday_turns(date)
 
+def sameday_turns(date):
+    return sum(map(lambda turn : turn.scheduled_for == date and turn.is_same_day, turns))
+
+def avg_sameday_turns(date):
+    return (sameday_turns(date - timedelta(days=7)) + \
+        sameday_turns(date - timedelta(days=14)) + \
+        sameday_turns(date - timedelta(days=21)) + \
+        sameday_turns(date - timedelta(days=28))) / 4
+
+# projected turns
 def projected_turns(date):
     today_beginning = datetime.combine(date.today(), time())
     return scheduled_turns(date) + avg_turns(today_beginning, date)
@@ -72,10 +83,12 @@ def avg_turns(today, date):
 def scheduled_between(date1, date2):
     return sum(map(lambda turn : date1 <= turn.created_at <= date2, turns))
 
-today_beginning = datetime.combine(date.today(), time())
-print(today_beginning)
-
+# test helpers
 print(scheduled_turns(datetime(2021, 11, 30)))
 print(scheduled_between(datetime(2021, 11, 18), datetime(2021, 11, 22)))
+today_beginning = datetime.combine(date.today(), time())
 print(avg_turns(today_beginning, datetime(2021, 11, 30)))
+
+# test main funcs
 print(projected_turns(datetime(2021, 11, 30)))
+print(projected_sameday_turns(datetime(2021, 11, 30)))
