@@ -32,7 +32,7 @@ Ref: users.id < custom_fields.user_id
 ![Model](custom_fields.png)
 
 ## API
-- POST /activations/custom_fields
+- `POST /activations/custom_fields`
 
 Body:
 ```
@@ -51,13 +51,13 @@ Returns:
 }
 ```
 
-- GET /activations/custom_fields/{id}
+- `GET /activations/custom_fields/{id}`
 
 Returns: see Body above
 
-- DELETE /activations/custom_fields/{id}
+- `DELETE /activations/custom_fields/{id}`
 
-- PATCH /activations/custom_fields/{id}
+- `PATCH /activations/custom_fields/{id}`
 
 Body: (user_id cannot be edited)
 
