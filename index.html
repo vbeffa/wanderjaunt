@@ -13,12 +13,6 @@
                 last_name() {
                     return this.name.split(' ')[1];
                 }
-                toString() {
-                    return `${this.title}: ${this.name}`;
-                }
-            }
-            Employee.prototype.toString = () => {
-                return `${this.title}: ${this.name}`;
             }
             const input = [
                 { "name": "Andres Green", "id": 4, "title": "COO", "manager_id": 2 },
